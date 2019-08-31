@@ -1,0 +1,8 @@
+Layout.js-> Manages the Side Drawer/ Top bar of the App
+
+BurgerBuilder.js-> Main part of the page containing A burger Preview and burger building Buttons.
+(Manages State)
+
+Auxillary.js-> High Order Component for Wrapping jsx codes to one Root element
+
+App.js-> Main file for bringing every file together
