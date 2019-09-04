@@ -16,18 +16,28 @@ const burger = props => {
   let nCheese = props.ingredients.cheese
   let nMeat = props.ingredients.meat
 
+  const ingredients = []
+
   const transformendIngredients = () => {
     for (let i = 0; i < nSalad; i++) {
-      nSalad = <BurgerIngredient type={'salad'} />
+      ingredients.push(
+        <BurgerIngredient type="salad" key={ingredients.length} />
+      )
     }
     for (let i = 0; i < nBacon; i++) {
-      nBacon = <BurgerIngredient type={'bacon'} />
+      ingredients.push(
+        <BurgerIngredient type="bacon" key={ingredients.length} />
+      )
     }
     for (let i = 0; i < nCheese; i++) {
-      nCheese = <BurgerIngredient type={'cheese'} />
+      ingredients.push(
+        <BurgerIngredient type="cheese" key={ingredients.length} />
+      )
     }
     for (let i = 0; i < nMeat; i++) {
-      nMeat = <BurgerIngredient type={'meat'} />
+      ingredients.push(
+        <BurgerIngredient type="meat" key={ingredients.length} />
+      )
     }
   }
 
@@ -36,10 +46,7 @@ const burger = props => {
   return (
     <div className={style.Burger}>
       <BurgerIngredient type="bread-top" />
-      {nSalad}
-      {nBacon}
-      {nCheese}
-      {nMeat}
+      {ingredients.map(value => value)}
       <BurgerIngredient type="bread-bottom" />
     </div>
   )
