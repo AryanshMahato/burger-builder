@@ -1,4 +1,4 @@
-Layout.js-> Manages the Side Drawer/ Top bar of the App
+Layout.js-> Manages the whole app by getting every Component in the page Side Drawer/ Top bar of the App
 
 BurgerBuilder.js-> Main part of the page containing A burger Preview and burger building Buttons.
 (Manages State)
