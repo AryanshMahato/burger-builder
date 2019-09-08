@@ -15,28 +15,39 @@ const burger = props => {
   let nBacon = props.ingredients.bacon
   let nCheese = props.ingredients.cheese
   let nMeat = props.ingredients.meat
+  let flag = true //Handle "Start adding Ingredients" p between Breads
 
   const ingredients = []
 
   const transformendIngredients = () => {
     for (let i = 0; i < nSalad; i++) {
+      flag = false
       ingredients.push(
         <BurgerIngredient type="salad" key={ingredients.length} />
       )
     }
     for (let i = 0; i < nBacon; i++) {
+      flag = false
       ingredients.push(
         <BurgerIngredient type="bacon" key={ingredients.length} />
       )
     }
     for (let i = 0; i < nCheese; i++) {
+      flag = false
       ingredients.push(
         <BurgerIngredient type="cheese" key={ingredients.length} />
       )
     }
     for (let i = 0; i < nMeat; i++) {
+      flag = false
       ingredients.push(
         <BurgerIngredient type="meat" key={ingredients.length} />
+      )
+    }
+
+    if (flag) {
+      ingredients.push(
+        <p>Start adding Ingredients</p>
       )
     }
   }
