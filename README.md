@@ -3,8 +3,8 @@ This project is taught and guided by Maximillian Schwarzmüller, Instructor on U
 
 ## How to use
 * Clone or download the repository
-* Run npm install
-* Run npm start
+* Run `npm install`
+* Run `npm start`
 
 and BOOM! You are good to go
 
