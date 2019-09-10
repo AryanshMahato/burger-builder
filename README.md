@@ -1,4 +1,4 @@
-## Hello, Welcome to my Burger-Builder Project
+# Hello, Welcome to my Burger-Builder Project
 This project is taught and guided by Maximillian Schwarzmüller, Instructor on Udemy
 
 ## How to use
