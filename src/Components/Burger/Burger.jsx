@@ -46,7 +46,7 @@ const burger = (props) => {
     }
 
     if (flag) {
-      ingredients.push(<p>Start adding Ingredients</p>)
+      ingredients.push(<p key={ingredients}>Start adding Ingredients</p>)
     }
   }
 

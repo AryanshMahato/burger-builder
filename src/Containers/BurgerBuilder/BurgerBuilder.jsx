@@ -6,6 +6,7 @@ import Aux from '../../HOC/Auxillary'
 import Burger from '../../Components/Burger/Burger'
 import BuildControls from '../../Components/Burger/BuildControls/BuildControls'
 import Modal from '../../Components/UI/Modal/Modal'
+import OrderSummary from '../../Components/Burger/OrderSummary/OrderSummary'
 
 class BurgerBuilder extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class BurgerBuilder extends Component {
       },
       totalprice: 4,
       purchaseable: false,
-      purchasing: false,
+      // purchasing: false,
     }
   }
 
@@ -95,10 +96,9 @@ class BurgerBuilder extends Component {
 
     return (
       <Aux>
-        <Modal
-          ingredients={this.state.ingredients}
-          purchasing={this.state.purchasing}
-        />
+        <Modal>
+          <OrderSummary ingredient={this.state.ingredients} />
+        </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
           price={this.state.totalprice}
