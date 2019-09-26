@@ -3,10 +3,10 @@ import React from 'react'
 import Aux from '../../../HOC/Auxillary'
 
 const orderSummary = (props) => {
-  const ingredientSummary = Object.keys(props.ingredient).map((igkey) => (
-    <li>
-      <span style={{ textTransform: 'capitalize' }}>{igkey}</span>:{' '}
-      {props.ingredient[igkey]}
+  const ingredientSummary = Object.keys(props.ingredient).map((igKey) => (
+    <li key={igKey}>
+      <span style={{ textTransform: 'capitalize' }}>{igKey}</span>:{' '}
+      {props.ingredient[igKey]}
     </li>
   ))
 

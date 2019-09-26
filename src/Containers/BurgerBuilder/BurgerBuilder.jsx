@@ -20,7 +20,7 @@ class BurgerBuilder extends Component {
       },
       totalprice: 4,
       purchaseable: false,
-      // purchasing: false,
+      purchasing: false,
     }
   }
 
@@ -69,6 +69,12 @@ class BurgerBuilder extends Component {
     this.updatePurchaseState(mIngredients)
   }
 
+  purchaseHandler = () => {
+    this.setState({
+      purchasing: true,
+    })
+  }
+
   updatePurchaseState(mIngredients) {
     let sum = 0
     // eslint-disable-next-line no-unused-vars
@@ -96,7 +102,7 @@ class BurgerBuilder extends Component {
 
     return (
       <Aux>
-        <Modal>
+        <Modal show={this.state.purchasing}>
           <OrderSummary ingredient={this.state.ingredients} />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
@@ -106,6 +112,7 @@ class BurgerBuilder extends Component {
           removeIngredientHandler={this.removeIngredientHandler}
           disabled={disabledInfo}
           orderStatus={this.state.purchaseable}
+          ordering={this.purchaseHandler}
         />
       </Aux>
     )
