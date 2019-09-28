@@ -81,7 +81,7 @@ class BurgerBuilder extends Component {
 
   purchaseContinueHandler = () => {
     // eslint-disable-next-line no-alert
-    alert('Order Placed')
+    alert('You can continue')
   }
 
   updatePurchaseState(mIngredients) {
