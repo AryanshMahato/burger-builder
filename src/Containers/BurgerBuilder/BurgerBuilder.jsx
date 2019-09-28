@@ -16,15 +16,15 @@ class BurgerBuilder extends Component {
         salad: 0,
         bacon: 0,
         cheese: 0,
-        meat: 0,
+        meat: 0
       },
       totalprice: 4,
       purchaseable: false,
-      purchasing: false,
+      purchasing: false
     }
   }
 
-  calculatePrice = (type) => {
+  calculatePrice = type => {
     if (type === 'salad') {
       return 0.5
     }
@@ -40,39 +40,43 @@ class BurgerBuilder extends Component {
     return 0
   }
 
-  addIngredientHandler = (type) => {
+  addIngredientHandler = type => {
     const mIngredients = { ...this.state.ingredients }
     mIngredients[type] += 1
     const increment = this.calculatePrice(type)
     this.setState({
       ingredients: mIngredients,
-      totalprice: this.state.totalprice + increment,
+      totalprice: this.state.totalprice + increment
     })
     this.updatePurchaseState(mIngredients)
   }
 
-  removeIngredientHandler = (type) => {
+  removeIngredientHandler = type => {
     const mIngredients = { ...this.state.ingredients }
     if (mIngredients[type] === 0) {
       return
     }
     mIngredients[type] -= 1
     this.setState({
-      ingredients: mIngredients,
+      ingredients: mIngredients
     })
     const decrement = this.calculatePrice(type)
 
     this.setState({
       ingredients: mIngredients,
-      totalprice: this.state.totalprice - decrement,
+      totalprice: this.state.totalprice - decrement
     })
     this.updatePurchaseState(mIngredients)
   }
 
   purchaseHandler = () => {
     this.setState({
-      purchasing: true,
+      purchasing: true
     })
+  }
+
+  purchaseCancelHandler = () => {
+    this.setState({ purchasing: false })
   }
 
   updatePurchaseState(mIngredients) {
@@ -84,11 +88,11 @@ class BurgerBuilder extends Component {
 
     if (sum >= 1) {
       this.setState({
-        purchaseable: true,
+        purchaseable: true
       })
     } else {
       this.setState({
-        purchaseable: false,
+        purchaseable: false
       })
     }
   }
@@ -102,7 +106,10 @@ class BurgerBuilder extends Component {
 
     return (
       <Aux>
-        <Modal show={this.state.purchasing}>
+        <Modal
+          show={this.state.purchasing}
+          backdropClicked={this.purchaseCancelHandler}
+        >
           <OrderSummary ingredient={this.state.ingredients} />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
