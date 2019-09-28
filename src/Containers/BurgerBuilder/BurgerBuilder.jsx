@@ -79,6 +79,11 @@ class BurgerBuilder extends Component {
     this.setState({ purchasing: false })
   }
 
+  purchaseContinueHandler = () => {
+    // eslint-disable-next-line no-alert
+    alert('Order Placed')
+  }
+
   updatePurchaseState(mIngredients) {
     let sum = 0
     // eslint-disable-next-line no-unused-vars
@@ -110,7 +115,11 @@ class BurgerBuilder extends Component {
           show={this.state.purchasing}
           backdropClicked={this.purchaseCancelHandler}
         >
-          <OrderSummary ingredient={this.state.ingredients} />
+          <OrderSummary
+            ingredient={this.state.ingredients}
+            purchaseCancelHandler={this.purchaseCancelHandler}
+            purchaseContinueHandler={this.purchaseContinueHandler}
+          />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
