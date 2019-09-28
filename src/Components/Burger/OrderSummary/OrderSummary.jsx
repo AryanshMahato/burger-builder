@@ -16,6 +16,9 @@ const orderSummary = props => {
       <h3>Your Order</h3>
       <p>A delecious burger with following order: </p>
       <ul>{ingredientSummary}</ul>
+      <p style={{ textAlign: 'center' }}>
+        <strong>Total Price: $ {props.price.toFixed(2)} </strong>
+      </p>
       <p>Continue to checkout?</p>
       <CButton buttonType='Danger' clicked={props.purchaseCancelHandler}>
         CANCEL
