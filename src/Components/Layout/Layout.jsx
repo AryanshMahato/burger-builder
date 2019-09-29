@@ -17,10 +17,14 @@ class Layout extends Component {
     this.setState({ showSideBar: false })
   }
 
+  menuClickHandler = () => {
+    this.setState({ showSideBar: true })
+  }
+
   render() {
     return (
       <Aux>
-        <Toolbar />
+        <Toolbar menuClickHandler={this.menuClickHandler} />
         <SideDrawer
           open={this.state.showSideBar}
           backdropClicked={this.backdropClickHandler}
