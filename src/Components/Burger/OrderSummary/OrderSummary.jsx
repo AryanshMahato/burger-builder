@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import CButton from '../../UI/Button/Button'
-import Aux from '../../../HOC/Auxillary'
+import CButton from '../../UI/Button/Button';
+import Aux from '../../../HOC/Auxillary';
 
 const orderSummary = props => {
   const ingredientSummary = Object.keys(props.ingredient).map(igKey => (
@@ -9,7 +9,7 @@ const orderSummary = props => {
       <span style={{ textTransform: 'capitalize' }}>{igKey}</span>:{' '}
       {props.ingredient[igKey]}
     </li>
-  ))
+  ));
 
   return (
     <Aux>
@@ -27,7 +27,7 @@ const orderSummary = props => {
         ORDER
       </CButton>
     </Aux>
-  )
-}
+  );
+};
 
-export default orderSummary
+export default orderSummary;

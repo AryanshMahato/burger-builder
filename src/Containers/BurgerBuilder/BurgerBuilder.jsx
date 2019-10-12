@@ -1,16 +1,16 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable react/no-access-state-in-setstate */
-import React, { Component } from 'react'
-import Aux from '../../HOC/Auxillary'
-import Burger from '../../Components/Burger/Burger'
-import BuildControls from '../../Components/Burger/BuildControls/BuildControls'
-import Modal from '../../Components/UI/Modal/Modal'
-import OrderSummary from '../../Components/Burger/OrderSummary/OrderSummary'
+import React, { Component } from 'react';
+import Aux from '../../HOC/Auxillary';
+import Burger from '../../Components/Burger/Burger';
+import BuildControls from '../../Components/Burger/BuildControls/BuildControls';
+import Modal from '../../Components/UI/Modal/Modal';
+import OrderSummary from '../../Components/Burger/OrderSummary/OrderSummary';
 
 class BurgerBuilder extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       ingredients: {
         salad: 0,
@@ -21,92 +21,92 @@ class BurgerBuilder extends Component {
       totalprice: 4,
       purchaseable: false,
       purchasing: false
-    }
+    };
   }
 
   calculatePrice = type => {
     if (type === 'salad') {
-      return 0.5
+      return 0.5;
     }
     if (type === 'bacon') {
-      return 0.9
+      return 0.9;
     }
     if (type === 'cheese') {
-      return 0.7
+      return 0.7;
     }
     if (type === 'meat') {
-      return 1.2
+      return 1.2;
     }
-    return 0
-  }
+    return 0;
+  };
 
   addIngredientHandler = type => {
-    const mIngredients = { ...this.state.ingredients }
-    mIngredients[type] += 1
-    const increment = this.calculatePrice(type)
+    const mIngredients = { ...this.state.ingredients };
+    mIngredients[type] += 1;
+    const increment = this.calculatePrice(type);
     this.setState({
       ingredients: mIngredients,
       totalprice: this.state.totalprice + increment
-    })
-    this.updatePurchaseState(mIngredients)
-  }
+    });
+    this.updatePurchaseState(mIngredients);
+  };
 
   removeIngredientHandler = type => {
-    const mIngredients = { ...this.state.ingredients }
+    const mIngredients = { ...this.state.ingredients };
     if (mIngredients[type] === 0) {
-      return
+      return;
     }
-    mIngredients[type] -= 1
+    mIngredients[type] -= 1;
     this.setState({
       ingredients: mIngredients
-    })
-    const decrement = this.calculatePrice(type)
+    });
+    const decrement = this.calculatePrice(type);
 
     this.setState({
       ingredients: mIngredients,
       totalprice: this.state.totalprice - decrement
-    })
-    this.updatePurchaseState(mIngredients)
-  }
+    });
+    this.updatePurchaseState(mIngredients);
+  };
 
   purchaseHandler = () => {
     this.setState({
       purchasing: true
-    })
-  }
+    });
+  };
 
   purchaseCancelHandler = () => {
-    this.setState({ purchasing: false })
-  }
+    this.setState({ purchasing: false });
+  };
 
   purchaseContinueHandler = () => {
     // eslint-disable-next-line no-alert
-    alert('You can continue')
-  }
+    alert('You can continue');
+  };
 
   updatePurchaseState(mIngredients) {
-    let sum = 0
+    let sum = 0;
     // eslint-disable-next-line no-unused-vars
     for (const key in mIngredients) {
-      sum += mIngredients[key]
+      sum += mIngredients[key];
     }
 
     if (sum >= 1) {
       this.setState({
         purchaseable: true
-      })
+      });
     } else {
       this.setState({
         purchaseable: false
-      })
+      });
     }
   }
 
   render() {
-    const disabledInfo = { ...this.state.ingredients }
+    const disabledInfo = { ...this.state.ingredients };
     // eslint-disable-next-line no-unused-vars
     for (const key in disabledInfo) {
-      disabledInfo[key] = disabledInfo[key] === 0
+      disabledInfo[key] = disabledInfo[key] === 0;
     }
 
     return (
@@ -132,8 +132,8 @@ class BurgerBuilder extends Component {
           ordering={this.purchaseHandler}
         />
       </Aux>
-    )
+    );
   }
 }
 
-export default BurgerBuilder
+export default BurgerBuilder;

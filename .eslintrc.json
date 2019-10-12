@@ -18,7 +18,6 @@
   },
   "plugins": ["react"],
   "rules": {
-    "semi": 0,
     "jsx-quotes": 0,
     "react/prefer-stateless-function": 0,
     "no-undef": 0,

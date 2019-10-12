@@ -1,25 +1,25 @@
-import React, { Component } from 'react'
-import classes from './Layout.module.css'
+import React, { Component } from 'react';
+import classes from './Layout.module.css';
 
-import Aux from '../../HOC/Auxillary'
-import Toolbar from '../../Components/Navigation/Toolbar/Toolbar'
-import SideDrawer from '../../Components/Navigation/Side Drawer/SideDrawer'
+import Aux from '../../HOC/Auxillary';
+import Toolbar from '../../Components/Navigation/Toolbar/Toolbar';
+import SideDrawer from '../../Components/Navigation/Side Drawer/SideDrawer';
 
 class Layout extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       showSideBar: false
-    }
+    };
   }
 
   backdropClickHandler = () => {
-    this.setState({ showSideBar: false })
-  }
+    this.setState({ showSideBar: false });
+  };
 
   menuClickHandler = () => {
-    this.setState({ showSideBar: true })
-  }
+    this.setState({ showSideBar: true });
+  };
 
   render() {
     return (
@@ -32,8 +32,8 @@ class Layout extends Component {
         <div>SideDrawer, Backdrop</div>
         <main className={classes.Content}>{this.props.children}</main>
       </Aux>
-    )
+    );
   }
 }
 
-export default Layout
+export default Layout;

@@ -1,7 +1,7 @@
-import React from 'react'
-import classes from './NavigationItems.module.css'
+import React from 'react';
+import classes from './NavigationItems.module.css';
 
-import NavigationItem from './Navigation item/Navigation item'
+import NavigationItem from './Navigation item/Navigation item';
 
 const navigationItems = props => (
   <ul className={classes.NavItems}>
@@ -10,6 +10,6 @@ const navigationItems = props => (
     </NavigationItem>
     <NavigationItem link='/'>Checkout</NavigationItem>
   </ul>
-)
+);
 
-export default navigationItems
+export default navigationItems;
