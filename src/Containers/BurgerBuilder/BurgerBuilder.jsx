@@ -7,7 +7,6 @@ import Burger from '../../Components/Burger/Burger';
 import BuildControls from '../../Components/Burger/BuildControls/BuildControls';
 import Modal from '../../Components/UI/Modal/Modal';
 import OrderSummary from '../../Components/Burger/OrderSummary/OrderSummary';
-import Axios from '../../axios-orders';
 import Spinner from '../../Components/UI/Spinner/Spinner';
 
 class BurgerBuilder extends Component {
@@ -101,7 +100,21 @@ class BurgerBuilder extends Component {
 		// Axios.post('/orders.json', order).then(() => {
 		// 	this.setState({ loading: false, purchasing: false });
 		// });
-		this.props.history.push('/checkout');
+
+		//Push All ingredient into query array
+		const query = [];
+		for (const ingredient in this.state.ingredients) {
+			query.push(`${ingredient}=${this.state.ingredients[ingredient]}`);
+		}
+
+		//Converted Query into string separated by '&'
+		const queryString = query.join('&');
+
+		//Pushing all ingredients into url via search
+		this.props.history.push({
+			pathname: '/checkout',
+			search: '?' + queryString
+		});
 	};
 
 	updatePurchaseState(mIngredients) {
